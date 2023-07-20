@@ -59,17 +59,20 @@ while True:
 
     button.click()
     sleep(4)
-
+    
+# cria o dataframe
 dados = pd.DataFrame(dados_hospedagens, columns=['Nome', 'Detalhes', 'URL', 'Valor'])
 data = datetime.datetime.now()
 dia = data.day
 mes = data.month
 ano = data.year
 
+# substitui os espaços por underline
 cidade = cidade.replace(' ', '_')
 caminho = os.path.join('dados-cidades', cidade)
 nome_arquivo = f'({dia}-{mes}-{ano}).csv'
 
+# se o caminho não existir, cria
 if not os.path.exists(caminho):
     os.makedirs(caminho)
 
